@@ -1,0 +1,33 @@
+@import 'core/bootstrap-modified';
+@import 'core/mixins';
+@import 'core/base';
+@import 'core/header';
+@import 'core/footer';
+@import 'core/figures';
+@import 'core/fullscreen';
+@import 'core/byline';
+@import 'core/mobilefix';
+
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+h1 {      // why don't these work??
+   font-size: 4em;
+   padding-bottom: 0;
+   margin-bottom: 0;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+.sub {
+  font-family: 'open sans condensed', sans-serif;
+  font-size: 2em;
+  color: #aaa;
+  text-align: center;
+  margin-top: 0;
+}

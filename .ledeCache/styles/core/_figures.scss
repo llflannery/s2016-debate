@@ -1,0 +1,176 @@
+figure {
+  padding: 1em 0;
+}
+figcaption {
+  font-family: $font-family-sans-serif;
+}
+.credit {
+  font-size: 11px;
+  text-align: right;
+}
+.caption {
+  font-size: 14px;
+  padding: 5px 0;
+}
+.lede.fs figure, .fs .figure {
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  position: relative;
+  .headline-overlay {
+    position: absolute;
+    color: white;
+    letter-spacing: -.12em;
+    h1 {
+      font-size: calc(3vw * 1 + 30px);
+    }
+    h2 {
+      font-size: calc(1.5vw * 1 + 30px);
+    }
+  }
+}
+.fs {
+  width: 1000px;
+  width: 100vw;
+  position: relative;
+  figcaption {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.fs {
+  .fixedimg {
+    figcaption {
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+    }
+  }
+  .image {
+    height: 85vh;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    position: relative;
+    background-size: cover;
+  }
+  .headline-overlay {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 6vw 8vw;
+    @media screen and (min-width: 768px) {
+      padding: 2em 4em;
+    }
+    &.top {
+      bottom: auto;
+      top: 0;
+      padding-top: 1em;
+      padding-top: 4vh;
+    }
+    &.middle {
+      bottom: 250px;
+      bottom: 30vh;
+    }
+    &.center {
+      width: 100%;
+      text-align: center;
+      left: 0;
+    }
+    &.right {
+      text-align: right;
+      left: auto;
+      right: 0;
+    }
+      h1, h2, p {
+      margin: .2em 0;
+      letter-spacing: -0.02em;
+      // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    h1 {
+      font-size: 48px;
+      font-size: calc(3vw * 1 + 27px);
+    }
+    h2 {
+      font-size: 30px;
+      font-size: calc(1.5vw * 1 + 27px);
+    }
+    p {
+      font-size: 18px;
+      font-size: calc(0.9vw * 1 + 15px);
+      line-height: 1.2em;
+    }
+    &.texttop {
+      bottom: auto;
+      top: 3vw;
+    }
+    &.textright {
+      left: auto;
+      right: 7vw;
+      h1, h2 {
+        text-align: right;
+      }
+    }
+    &.textbackground {
+      // background-color: rgba(0, 0, 0, .3);
+      @include title-gradient();
+      &.top {
+        @include title-gradient-top();
+      }
+      &.bottom {
+        @include title-gradient-bottom();
+      }
+    }
+    &.textshadow {
+      h1, h2, p {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+}
+
+.fs.contain {
+  .image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+  }
+}
+.touchevents {
+  .fs {
+    .image {
+      background-attachment: scroll;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .fs {
+    width: 1000px;
+    width: 100vw;
+    position: relative;
+    > * {
+      // position: relative;
+      // width: 100%;
+    }
+    figcaption {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.no-display, .false-display { display: none; }
+@media only screen {
+  // img.print-only { display: none!important; }
+  img.print-only { /* this works for print without hiding from Safari reader */
+    height: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+@media only print {
+  .fixedimg-subhed { display: none!important; }
+  .mobile-only { display: block!important; }
+}
+// add space between last p and top of fullscreen image
+p+.fs {
+  margin-top: 3em;
+}

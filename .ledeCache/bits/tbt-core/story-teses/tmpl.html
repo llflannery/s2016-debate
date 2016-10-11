@@ -1,0 +1,17 @@
+{% if bit.links -%}
+
+<div class="teses">
+
+  {% for each in bit.links -%}
+  <div class="teses-tese">
+    <a href="{{ each.url }}"{% if each.newtab %} target="_blank"{% endif %} class="clearfix">
+      {% if each.hed %}<h4 class="tese-hed">{{ each.hed | safe }}</h4>{% endif %}
+      {% if each.src %}<img class="tese-image" src="//s3.amazonaws.com/ledejs/resized/{{ $projectName | urlencode }}/480/{{ each.src | urlencode }}.{% if each.imgtype %}{{ each.imgtype }}{% else %}jpg{% endif %}">{% endif %}
+      {% if each.blurb %}<div class="tese-blurb">{{ each.blurb | linebreaks | safe }}</div>{% endif %}
+    </a>
+  </div>
+  {%- endfor %}
+
+</div>
+
+{%- endif %}

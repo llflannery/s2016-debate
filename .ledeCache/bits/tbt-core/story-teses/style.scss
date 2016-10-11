@@ -1,0 +1,41 @@
+@import 'core/bootstrap-modified/variables';
+
+.teses {
+  padding-top: 1em;
+}
+.teses a .tese-hed {
+  @include open-sans();
+  color: $gray-dark;
+  &:hover {
+    color: inherit;
+  }
+}
+.teses-tese {
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  &::after {
+    clear: both;
+  }
+}
+.tese-hed {
+  font-weight: normal;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+.tese-blurb {
+  // font-size: .9rem;
+}
+// .tese-image {
+//   float: left;
+//   margin: 0 1em 1em 0;
+//   width: 200px;
+//   max-width: 60%;
+// }
+.tese-image {
+  float: left;
+  margin: 0 1em 1em 0;
+  width: 100%;
+  @media screen and (min-width: 544px) {
+    width: 40%;
+  }
+}

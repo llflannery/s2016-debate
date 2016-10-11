@@ -1,0 +1,19 @@
+body {
+  background-color: #1d1d1d;
+  color: #c7c7c7;
+}
+header {
+  background-color: #1d1d1d;
+}
+.byline, .dateline, .copyright, .caption, .credit {
+  color: #e6e6e6 !important;
+}
+a {
+  color: #e9452b;
+  &:hover {
+    color: #781F11;
+  }
+}
+.header-logo {
+  left: 5px;
+}

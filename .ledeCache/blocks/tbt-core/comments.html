@@ -1,0 +1,65 @@
+<div class="container comments">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 main-column">
+      <button id="commentbtn" class="btn btn-lg btn-block">Load comments</button>
+      <div id='commentsDiv_{{ $projectName | slugify }}' style="display: none;"></div>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  var comments = document.querySelector('#commentsDiv_{{ $projectName | slugify }}');
+  var button = document.querySelector('#commentbtn');
+  var params = {
+    categoryID: 'tpc_comments',
+    streamID: '{{ $projectName | slugify }}',
+    version: 2,
+    containerID: 'commentsDiv_{{ $projectName | slugify }}',
+    cid:'',
+    enabledShareProviders: 'facebook,twitter,yahoo,linkedin',
+    onLoad: function() {
+      if(typeof tpca_commentload === "function") {
+        tpca_commentload();
+      }
+      comments.style.width = "100%";
+      button.style.display = 'none';
+    },
+    onCommentVoted: function(e) {
+      if(typeof tpca_commentvote === "function") {
+        tpca_commentvote(e.comment.ID, e.streamID, e.comment.commentText,
+            (e.vote === 'pos' ? 1 : (e.vote == 'neg' ? -1 : 0)),
+            e.comment.posVotes, e.comment.negVotes);
+      }
+    },
+    onBeforeCommentSubmitted: function(a) {
+      if(typeof tpca_commentpost === "function") {
+        tpca_commentpost(a.commentText);
+      }
+      return true;
+    },
+    onCommentSubmitted: function(actionName, description) {
+      var socialUserAction = new gigya.services.socialize.UserAction();
+      socialUserAction.setLinkBack(window.location.href);
+      socialUserAction.setTitle(document.title);
+      socialUserAction.setActionName(actionName);
+      if (description) {
+        socialUserAction.setDescription(description);
+      }
+      var activityFeed_params = {
+        containerID: "gigyaActivityFeed",
+        userAction: socialUserAction,
+        privacy: "public",
+        scope: "internal"
+      };
+      gigya.services.socialize.publishUserAction({}, activityFeed_params);
+    }
+  };
+
+  function showComments() {
+    gigya.comments.showCommentsUI(params);
+  }
+
+  button.addEventListener('click', showComments);
+  button.addEventListener('touch', showComments);
+
+</script>

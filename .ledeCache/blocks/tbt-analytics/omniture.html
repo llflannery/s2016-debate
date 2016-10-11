@@ -1,0 +1,74 @@
+{% if not $debug %}
+<!-- OMNITURE BEGIN -->
+<!-- SiteCatalyst code version: H.1.
+Copyright 1997-2005 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" src="http://www.tampabay.com/universal/scripts/omniture/tb_code.js"></script> <script language="JavaScript">
+  /* You may give each page an identifying name, server, and channel on
+   the next lines. */
+  s.pageName="Projects: {{ omniture.year }}: {{ omniture.section }}: {{ seo.webhed | slugify }}";
+  s.server="www.tampabay.com";
+  s.channel="Projects";
+  s.hier1="Projects: {{ omniture.year }}: {{ omniture.section }}: {{ seo.webhed | slugify }}";
+  s.hier2="";
+  s.pageType="article";
+  s.prop1="";
+  s.prop2="Projects";
+  s.prop3="{{ omniture.section }}";
+  s.prop4="";
+  s.prop5="";
+  s.prop6="";
+  s.prop7="";
+  s.prop8="";
+  s.prop9="";
+  s.prop10="";
+  s.prop19="{{ omniture.section }}"; // topic keywords
+  s.prop25="{{ omniture.byline }}";
+  /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+  var s_code=s.t();if(s_code)document.write(s_code)</script> <script language="JavaScript">
+  if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C'
+      )+'\!-'+'-')
+</script>
+<noscript>
+  <img src="http://sptmain.122.2O7.net/b/ss/sptmain/1/H.1--NS/0" height="1" width="1" border="0" alt="" />
+</noscript>
+<!--/DO NOT
+REMOVE/-->
+<!-- End SiteCatalyst code version: H.1. -->
+<!-- OMNITURE END -->
+
+<!-- CHARTBEAT BEGIN -->
+<script type="text/javascript">
+    var _sf_startpt=(new Date()).getTime();
+    var _sf_async_config = _sf_async_config || {};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = 60766;
+    _sf_async_config.domain = 'tampabay.com';
+    _sf_async_config.useCanonical = false;
+    _sf_async_config.sections = "projects, {{ omniture.section }}";
+    _sf_async_config.authors = "{{ omniture.byline }}";
+    _sf_async_config.path = "{{ seo.url }}";
+    _sf_async_config.title = "{{ seo.webhed }}";
+    /** CONFIGURATION END **/
+
+    (function() {
+        function loadChartbeat() {
+            window._sf_endpt = (new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+            loadChartbeat : function() {
+                oldonload();
+                loadChartbeat();
+            };
+    })();
+</script>
+
+
+<!-- /tbt analytics -->
+{% endif %}
