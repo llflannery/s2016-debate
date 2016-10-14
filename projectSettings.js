@@ -9,7 +9,7 @@ class SettingsConfig {
     this.blocks = [
       "core/header.html",
       "ARTICLE",
-      "tbt-core/comments.html",
+      // "tbt-core/comments.html",
       "core/footer.html",
       "tbt-analytics/omniture.html"
     ];
